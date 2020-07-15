@@ -13,6 +13,7 @@ export function HeadComponent( {title, description} ) {
                     content={description}
                 />
                 <meta charSet="utf-8"/>
+                
             </Head>
         </React.Fragment>
     )

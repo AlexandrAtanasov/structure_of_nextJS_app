@@ -7,7 +7,7 @@ export function NavigationBar() {
             <nav>
                 <Link href={'/'}><a>Main page</a></Link>
                 <Link href={'/about'}><a>About page</a></Link>
-                <Link href={'/posts/11'}><a>Post 11 page</a></Link>
+                <Link href={'/posts'}><a>Post page</a></Link>
             </nav>
 
             <style jsx>{`
