@@ -20,15 +20,21 @@ export default function Posts({ posts: serverPosts }) {
 
     if (!posts) {
         return (
-            <MainLayout>
+            <MainLayout
+                title='Loading Posts page'
+                description='Description for Posts page'
+            >
                 <p>Loading ...</p>
             </MainLayout>
         )
     }
 
     return (
-        <MainLayout>
-            <h1> Post page {router.query.postId}</h1>
+        <MainLayout
+            title='Posts page'
+            description='Description for Posts page'
+        >
+            <h1> Posts page {router.query.postId}</h1>
             <ul>
                 {posts.map(post => (
                     <li key={post.id}>

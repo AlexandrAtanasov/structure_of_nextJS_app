@@ -20,14 +20,20 @@ export default function Post( {post: serverPost} ) {
 
     if (!post) {
         return (
-            <MainLayout>
+            <MainLayout
+                title='Loading Post page'
+                description='Description for Post page'
+            >
                 <p>Loading ...</p>
             </MainLayout>
         )
     }
 
     return (
-        <MainLayout> 
+        <MainLayout
+            title={post.title} page
+            description='Description for Post page'
+        > 
             <h1>{post.title}</h1>
             <hr/>
             <p>{post.body}</p>
@@ -36,13 +42,24 @@ export default function Post( {post: serverPost} ) {
     )
 }
 
-Post.getInitialProps = async (ctx) => {
+// Post.getInitialProps = async (ctx) => {
+//     if (!ctx.req) {
+//         return {post: null}
+//     }
+//     const response = await fetch(`http://localhost:4200/post/${ctx.query.id}`)
+//     const post = await response.json()
+//     return {
+//         post
+//     }
+// }
+
+export async function getSeverSideProps (ctx) {
     if (!ctx.req) {
         return {post: null}
     }
     const response = await fetch(`http://localhost:4200/post/${ctx.query.id}`)
     const post = await response.json()
     return {
-        post
+        props: {post}
     }
 }
